@@ -159,4 +159,7 @@ var Heap = (function () {
         }
     });
 
+    return Heap;
+
 })();
+
