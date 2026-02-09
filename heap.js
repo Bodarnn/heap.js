@@ -72,7 +72,7 @@ var Heap = (function () {
         }
     });
 
-    // Get the max value
+    // Get the max
     Object.defineProperty(Heap.prototype, 'peek', {
         writable: true, enumerable: false, configurable: true,
         value: function () {
@@ -80,7 +80,7 @@ var Heap = (function () {
         }
     });
 
-    // Delete the max value
+    // Delete the max
     Object.defineProperty(Heap.prototype, 'pop', {
         writable: true, enumerable: false, configurable: true,
         value: function () {
@@ -131,7 +131,7 @@ var Heap = (function () {
         }
     });
 
-    // Delete the max value and add a value
+    // Delete the max and add a value
     Object.defineProperty(Heap.prototype, 'replace', {
         writable: true, enumerable: false, configurable: true,
         value: function (x) {
@@ -162,4 +162,5 @@ var Heap = (function () {
     return Heap;
 
 })();
+
 
