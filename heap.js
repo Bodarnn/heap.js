@@ -112,22 +112,28 @@ var Heap = (function () {
     // Add a value
     Object.defineProperty(Heap.prototype, 'push', {
         writable: true, enumerable: false, configurable: true,
-        value: function (x) {
+        value: function (/* ...values */) {
             var heap = this;
-            var size = Array.prototype.push.call(heap, undefined);
-            var i = size - 1;
+            var values = arguments;
+            var n = values.length;
 
-            while (i > 0) {
-                var j = (i - 1) >>> 1;
+            for (var i = 0; i < n; i++) {
+                var x = values[i];
+                var j = heap.length++;
 
-                if (heap[j] >= x) break;
+                while (j > 0) {
+                    var k = (j - 1) >>> 1;
 
-                heap[i] = heap[j];
-                i = j;
+                    if (heap[k] >= x) break;
+
+                    heap[j] = heap[k];
+                    j = k;
+                }
+
+                heap[j] = x;
             }
 
-            heap[i] = x;
-            return size;
+            return heap.length;
         }
     });
 
